@@ -37,6 +37,17 @@ public class Print {
 //		%s	: 문자열
 //		%o, %x: 8진수 정수, 16진수 정수
 		System.out.printf("num: %d\n", 3);
+		
+		
+		String name = "이준상";
+		int age = 33;
+		double height = 179.9;
+		
+		System.out.printf(""
+				+ "제 이름은 %s이고,\n" 	// %s는 문자열
+				+ "나이는 %d살\n"			// %d는 정수형
+				+ "키는 %.1fcm입니다.\n"		// %f는 실수형
+				+ "", name, age, height);
 	}
 
 }

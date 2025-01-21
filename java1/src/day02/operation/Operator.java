@@ -132,21 +132,49 @@ public class Operator {
 		System.out.println(10 >= 10);// 네 -> true
 		
 //		5. 논리연산자
+//		5-1. 논리부정연산자
+//		!를 논리값 앞에 붙여 그 값을 반전시키는 단항 연산자의 일종이다.
+//		예) !true == false, !false == true
+		boolean isTrue = true;
+		System.out.println(!isTrue); // true의 반전인 false가 출력된다.
 		
-//		논리부정
+//		5-2. AND
+//		논리곱이라고도 불리는 연산자로, 엠퍼샌드(&)를 두 번 적은 것을 의미하며
+//		A && B 와 같이 두 항을 좌우 두고 연산을 하는 이항 연산자다.
+//		이때, 두 값(A, B)이 모두 참(true)이면 그 결과 참이고
+//		그 외의 경우는 모두 거짓이다.(A와 B는 반드시 논리값이어야 한다.)
+//		집합의 개념으로는 교집합, 기계어 입장에서는 논리곱의 연산과 같다.
+//		즉, 1x1 = 1이기 때문에 모두 참(1)이어야 결과가 참(1)이 나온다
+//		하나라도 거짓이면 0x1=0 거짓(0)이 된다.
+		boolean and1 = true && true; // true
+		System.out.printf("and1 %s\n", and1);
+		boolean and2 = true && false; // false
+		System.out.printf("and2 %s\n", and2);
+		boolean and3 = false && false; // false
+		System.out.printf("and3 %s\n", and3);
+		
+//		5-3. OR
+//		논리합이라고도 불리는 연산자로, shift와 Enter 위에 있는 \를 누르면
+//		나오는 |(버티컬 바)를 두 번 쓰면 된다.
+//		논리합은 연산자를 중심으로 두 항 중 하나라도 참이면 그 결과 참
+//		모두 거짓이어야 비로소 거짓을 반환한다.
+//		집합으로는 합집합의 개념과 유사하며 기계어 입장에서는 논리합(합연산)과
+//		그 결과가 같다.
+		System.out.println(true || true); // true
+		System.out.println(true || false); // true
+		System.out.println(false || false); // false
 		
 //		삼항 연산자
-//		-> if
+//		주어지는 조건식의 결과에 따라 그 반환값을 사용자가 직접 지정하는
+//		조금은 특별한 연산자다.
+//		[조건식] ? [참일 경우 반환될 값] : [거짓일 경우 반환될 값]
+		num1 = 5; num2 = 15; 
+		// 두 값을 비교하여 더 큰 값을 반환하는 삼항 연산자 예제
+		int bigOne = num1 > num2 ? num1 : num2;
+		System.out.println(bigOne);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+//		그외 배우지 않은 연산자
+//		비트 연산자, 쉬프트 연산자
 	}
 
 }

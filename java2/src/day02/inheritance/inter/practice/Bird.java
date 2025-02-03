@@ -6,6 +6,4 @@ public abstract class Bird extends Animal {
 		System.out.println("조류는 난생동물입니다.");
 	}
 	
-	
-
 }

@@ -14,6 +14,5 @@ public abstract class Mammal extends Animal {
 	public void info() {
 		System.out.println("포유류는 젖먹이 동물입니다.");
 	}
-	
-	
+
 }

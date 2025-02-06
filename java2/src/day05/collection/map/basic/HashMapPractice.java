@@ -1,6 +1,7 @@
 package day05.collection.map.basic;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class HashMapPractice {
 
@@ -61,6 +62,75 @@ public class HashMapPractice {
 			Object value = hm.get(key);
 			System.out.println("key: " + key);
 			System.out.println("value: " + value);
+		}
+
+		// 요소의 제거
+		// .remove(K) -> V|null
+		// 제거하고자 하는 값의 키를 전달했을 때
+		// 해당 키가 존재하면 그 키를 요소 목록에서 제거하고
+		// 해당 키에 해당하는 값을 반환
+		// 해당 키가 존재하지 않는다면 찾을 수 없으므로 null을 반환
+//		Object removed = hm.remove("지역");
+//		System.out.println("제거된 요소: " + removed);
+//		
+//		Object removedE = hm.remove("성별");
+//		System.out.println("찾을 수 없는 요소: " + removedE);
+
+		// 지역 키값을 제거
+		Object result = hm.remove("지역");
+		System.out.println((result == null ? "찾을 수 없는 요소: " : "제거된 요소: ") + result);
+
+		// 제거된 요소를 또 제거하려고 하면
+		result = hm.remove("지역");
+
+		// 찾을 수 없는 요소라고 출력한다.
+		System.out.println((result == null ? "찾을 수 없는 요소: " : "제거된 요소: ") + result);
+
+		// 키의 값을 대체
+		// .replace(K, V)
+		// 전달된 키의 값을 전달된 값으로 대체한다.
+		// - 이때 키가 존재하지 않으면 아무런 동작을 수행하지 않는다.
+		// 키가 존재하지 않는다면 null값을 반환한다.
+		// -> 키가 존재하지만 그 값이 null값일 경우에도 null값을 반환한다.
+		// - 키가 정상적으로 존재한다면 그 값을 전달받은 값으로 변경한다.
+		// 정상적으로 메서드가 실행된 경우, 기존 값을 반환한다.
+		Object replaced = hm.replace("나이", 31);
+		System.out.println("대체된 기존값: " + replaced);
+
+		Object replaced2 = hm.replace("지역", "강남");
+		System.out.println("키값을 찾을 수 없어 " + "대체되지 않음: " + replaced2);
+
+		// 두번째 replace
+		// .replace(K, oldV, newV)
+		// 전달된 키의 요소 값이 oldV라면, 전달된 newV로 대체한다.
+		// 키의 요소 값이 oldV가 아닌 경우엔 대체를 하지 않는다.
+		// 반환값으로는 대체되었는지 여부를 반환한다.
+		boolean replaceOk1 = hm.replace("나이", 31, 32); // 나이의 값이 31이라면 32로 변경
+		System.out.println("나이값 변경 여부: " + replaceOk1);
+		boolean replaceOk2 = hm.replace("나이", 31, 30); // 나이의 값이 31이라면 30으로 변경
+		System.out.println("나이값 변경 여부: " + replaceOk2);
+		// -> 기존 값이 32이기 때문에 변경되지 않음.
+
+//		이터레이터
+//		요소나 값을 하나씩 순차적으로 가져오는 역할을 수행한다.
+//		반복문과 다른 점은 원할 때 다음 값을 가져오거나 건너뛰는 행동을
+//		할 수 있다. -> 정해지지 않은 영역에서 가능.
+//		.hasNext() boolean
+//		다음 요소가 있는지 여부를 반환
+//		주로 while문의 조건식으로 쓰여서 다음 요소가 있는 경우에만
+//		while문 안으로 진입한다.
+
+//		키값의 이터레이터 생성
+		Iterator<String> iterKey = hm.keySet().iterator();
+
+		// 다음 요소가 있을 경우 반복 실행
+		while (iterKey.hasNext()) {
+			// .next() 다음 요소를 반환
+			String current = iterKey.next();
+			// HashMap의 다음 value를 get
+			Object value = hm.get(current);
+			System.out.println("키: " + current);
+			System.out.println("값: " + value);
 		}
 
 	}
